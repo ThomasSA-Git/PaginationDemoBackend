@@ -22,6 +22,7 @@ public class CarResponse {
 public CarResponse(Car car){
   this.id = car.getId();
   this.brand = car.getBrand();
+  this.model = car.getModel();
   this.color = car.getColor();
   this.kilometers = car.getKilometers();
 }
@@ -29,6 +30,7 @@ public CarResponse(Car car){
   public CarResponse copyTo(Car car){
      this.id = car.getId();
      this.brand = car.getBrand();
+     this.model = car.getModel();
      this.color = car.getColor();
      this.kilometers = car.getKilometers();
     return this;

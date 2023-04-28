@@ -28,15 +28,22 @@ public class CarController {
 
 
   @GetMapping()
-  public List<Car> getAllCars(Pageable pageable) {
-    Page<Car> carPage = carRepository.findAll(pageable);
-    return carPage.getContent();
-    //return carService.getAllCars(pageable);
+  public List<CarResponse> getAllCars(Pageable pageable) {
+    /*Page<Car> carPage = carRepository.findAll(pageable);
+    return carPage.getContent();*/
+    return carService.getAllCars(pageable);
   }
 
   @GetMapping("/brand/{brand}")
   public List<Car> getCarsByBrand(@PathVariable String brand, Pageable pageable) {
     Page<Car> carPage = carRepository.findAllByBrand(brand, pageable);
+    return carPage.getContent();
+    //return carService.getAllCars(pageable);
+  }
+
+  @GetMapping("/model/{model}")
+  public List<Car> getCarsByModel(@PathVariable String model, Pageable pageable) {
+    Page<Car> carPage = carRepository.findAllByModel(model, pageable);
     return carPage.getContent();
     //return carService.getAllCars(pageable);
   }
