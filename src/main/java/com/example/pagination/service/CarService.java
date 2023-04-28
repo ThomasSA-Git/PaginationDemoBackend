@@ -30,5 +30,9 @@ public class CarService {
     return carResponses;
   }
 
+  public Long getCount(){
+    return carRepository.count();
+  }
+
 
 }

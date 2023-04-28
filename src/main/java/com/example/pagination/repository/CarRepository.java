@@ -12,9 +12,9 @@ import java.util.List;
 @Repository
 public interface CarRepository extends JpaRepository<Car, Integer> {
 
-  Page<Car> findAllByBrand(String brand, Pageable pageable);
+  Page<Car> findCarsByBrand(String brand, Pageable pageable);
 
-  Page<Car> findAllByModel(String model, Pageable pageable);
+  Page<Car> findCarsByModel(String model, Pageable pageable);
 
   long count();
   Page<Car> findCarsByColor(String color, Pageable pageable);

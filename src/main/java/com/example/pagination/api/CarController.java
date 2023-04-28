@@ -36,24 +36,24 @@ public class CarController {
 
   @GetMapping("/brand/{brand}")
   public List<Car> getCarsByBrand(@PathVariable String brand, Pageable pageable) {
-    Page<Car> carPage = carRepository.findAllByBrand(brand, pageable);
+    Page<Car> carPage = carRepository.findCarsByBrand(brand, pageable);
     return carPage.getContent();
     //return carService.getAllCars(pageable);
   }
 
   @GetMapping("/model/{model}")
   public List<Car> getCarsByModel(@PathVariable String model, Pageable pageable) {
-    Page<Car> carPage = carRepository.findAllByModel(model, pageable);
+    Page<Car> carPage = carRepository.findCarsByModel(model, pageable);
     return carPage.getContent();
     //return carService.getAllCars(pageable);
   }
 
   @GetMapping("/count")
   public long getTotalNumber() {
-    return carRepository.count();
+    return carService.getCount();
   }
 
-  @GetMapping("/color/{color}")
+  @GetMapping("/color")
   public List<Car> getCarsByColor(@PathVariable String color, Pageable pageable) {
     Page<Car> carPage = carRepository.findCarsByColor(color, pageable);
     return carPage.getContent();
