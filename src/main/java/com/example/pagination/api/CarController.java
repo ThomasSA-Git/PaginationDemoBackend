@@ -35,17 +35,17 @@ public class CarController {
   }
 
   @GetMapping("/brand/{brand}")
-  public List<Car> getCarsByBrand(@PathVariable String brand, Pageable pageable) {
-    Page<Car> carPage = carRepository.findCarsByBrand(brand, pageable);
-    return carPage.getContent();
-    //return carService.getAllCars(pageable);
+  public List<CarResponse> getCarsByBrand(@PathVariable String brand, Pageable pageable) {
+ /*   Page<Car> carPage = carRepository.findCarsByBrand(brand, pageable);
+    return carPage.getContent();*/
+    return carService.getAllCarsByBrand(brand, pageable);
   }
 
   @GetMapping("/model/{model}")
-  public List<Car> getCarsByModel(@PathVariable String model, Pageable pageable) {
-    Page<Car> carPage = carRepository.findCarsByModel(model, pageable);
-    return carPage.getContent();
-    //return carService.getAllCars(pageable);
+  public List<CarResponse> getCarsByModel(@PathVariable String model, Pageable pageable) {
+ /*   Page<Car> carPage = carRepository.findCarsByModel(model, pageable);
+    return carPage.getContent();*/
+    return carService.getAllCarsByModel(model, pageable);
   }
 
   @GetMapping("/count")
@@ -54,8 +54,8 @@ public class CarController {
   }
 
   @GetMapping("/color")
-  public List<Car> getCarsByColor(@PathVariable String color, Pageable pageable) {
-    Page<Car> carPage = carRepository.findCarsByColor(color, pageable);
-    return carPage.getContent();
+  public List<CarResponse> getCarsByColor(@PathVariable String color, Pageable pageable) {
+   /* Page<Car> carPage = carRepository.findCarsByColor(color, pageable);*/
+    return carService.getAllCarsByColor(color, pageable);
   }
 }
